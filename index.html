@@ -1,1137 +1,466 @@
-/* Start variables */
-:root {
-  --main-color: #19c8fa;
-  --transparent-color: rgb(15 116 143 / 70%);
-  --text-content-color: #777;
-  --line-height: 1.7;
-  --main-duration: 0.5s;
-  --padding-top-section: 80px;
-  --padding-bottom-section: 80px;
-}
-/* End variables */
-/* Start Global Rules */
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  }
-html {
-  scroll-behavior: smooth;
-}
-body {
-  font-family: 'Arial', sans-serif;
-  font-family: "Space Grotesk", sans-serif;
-  font-family: "Open Sans", sans-serif;
-  margin:0;
-}
-.container {
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
-}
-body i {
-  font-weight: 900;
-  font-family: "Font Awesome 5 Free";
-  /* font-family: "Font Awesome Free 6.2.1"; */
-}
-/* Start Components */
-.main-heading h1 {
-  font-size: 40px;
-  font-weight: normal;
-  text-transform: uppercase;
-  width: fit-content;
-  margin: 0 auto;
-  padding-bottom: 20px;
-  margin-bottom: 50px;
-  position: relative;
-}
-.main-heading h1::after {
-  content: " ";
-  width:70%;
-  height: 2px;
-  background-color: black;
-  position: absolute;
-  top: 100%; 
-  left: 50%;
-  transform: translateX(-50%); 
-}
-.main-heading h1::before {
-  content: " ";
-  width:15px;
-  height: 15px;
-  border: 2px solid black;
-  border-radius: 50%;
-  background-color: white;  
-  position: absolute;
-  left: 50%;
-  bottom: -10px;
-  transform: translateX(-50%);
-  z-index:1;
-}
-.main-heading p {
-  color: var(--text-content-color);
-  width: 550px;
-  max-width: 100%;
-  margin: 0  auto;
-  text-align: center;
-  margin-bottom: 80px;
-}
-/* End Components */
-/* Start Screen Measurement */
-/* Mobile Screen */
-@media (max-width: 767px) {
-  .container {
-    width: 100%;
-  }
-}
-/* Small Screen */
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-/* Medium Screen */
-@media (min-width: 992px) {
-  .container {
-    width: 970px
-  }
-}
-/* Large Screen */
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
-/* End Screen Measurement */
-/* End Global Rules */
-/* Start Header Section */
-.header {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-}
-.header .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; ;
-  align-items: center;
-  border-bottom: 2px solid #a2a2a2;
-  position: relative;
-  height: 83px; 
-}
-.header .container .slogan {
-  /* width: 112px; */
-  height: 65px;
-}
-.header .container .link {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-.header .container .link ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  display: flex;
-}
-@media (max-width: 767px) {
-  .header .container .link ul {
-    display: none;
-  }
-}
-.header .container .link i:nth-of-type(1):hover + ul {
-  position: absolute;
-  left: 0;
-  top: calc( 100% + 15px);
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(0 0 0 / 50%);
-}
-.header .container .link ul li {
-  margin-right: 20px;
-  height: inherit;
-}
-@media (max-width: 767px) {
-  .header .container .link ul li {
-    margin-right: 0;
-  }
-}
-.header .container .link ul li a {
-  text-decoration: none;
-  display: block;
-  padding: 30px 0;
-  color: white;
-  font-size: 18px;
-  text-transform: capitalize;
-  height: 100%;
-  transition-property: color, border;
-  transition-duration: var(--main-duration)
-}
-.header .container .link ul li a.active,
-.header .container .link ul li a:hover {
-  color: var(--main-color);
-  border-bottom: 1px solid var(--main-color);
-}
-@media (max-width: 767px) {
-  .header .container .link ul li a {
-    padding: 15px 10px 15px;
-    font-size: 14px;
-    border-bottom: none;
-  }
-}
-.header .container .link i {
-  color: white;
-  font-size: 20px;
-  padding: 3px  15px;
-  font-weight: 900;
-  font-family: "Font Awesome 5 Free";
-}
-.header .container .link i:nth-of-type(1) {
-  margin-right: 15px;
-}
-@media (min-width: 768px) {
-  .header .container .link i:nth-of-type(1) {
-    display: none;
-  }
-}
-.header .container .link i:nth-of-type(2) {
-  border-left: 2px solid white;
-}
-/* End Header Section */
-/* Start Landing Section */
-.landing {
-  height: 100vh;
-  position: relative;
-  /* background-color: lightgray;
-  background-image: url("/images/landing.jpg");
-  background-size: cover; */
-}
-.landing video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
-.landing .overly {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0 0 0 / 60%);
-}
-.landing .intro-box {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform:translate(-50%, -50%);
-  padding: 60px 40px;
-  color: white;
-  width: 60%;
-  background-color: var(--transparent-color);
-  display: flex;
-}
-@media (max-width: 767px) {
-  .landing .intro-box {
-    width: 100%;
-    justify-content: center;
-  }
-}
-.landing .intro-box .intro-text {
-  
-  max-width: 650px;
-  line-height: 2;
-}
-@media (max-width: 767px) {
-  .landing .intro-text {
-    width: 100%;
-  }
-}
-.landing .intro-text h2 {
-    text-transform: capitalize;
-    font-size: 30px;
-    font-weight: normal;
-}
-.landing .intro-text h2 .my-name {
-  text-transform: uppercase;
-  font-weight: bold;
-}
-.landing .intro-text h1 {
-    font-weight: normal;
-    font-size: 45px;
-    text-shadow: 4px 3px 5px #0a0a0a;
-}
-.landing  .change-background {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  font-size: 40px;
-}
-@media(max-width: 767px) {
-  .landing  .change-background {
-    display: none;
-  }
-}
-.landing  .fa-angle-left.change-background {
-  left: 20px;
-  font-family: "Font Awesome 5 Free";
-}
-.landing  .fa-angle-right.change-background {
-  right: 20px;
-  font-family: "Font Awesome 5 Free";
-}
-.landing .bullets-icons {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 15px;
-}
-.landing .bullets-icons span {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: 1px solid white;
-}
-.landing .bullets-icons span:nth-of-type(2) {
-  background-color: var(--main-color);
-  border: none;
-  border-color: var(--main-color);
-}
-/* End Landing Section */
-/* Start Services Section */
-.services {
-  padding-top: var(--padding-bottom-section);
-  padding-bottom: var(--padding-top-section);
-  background-color: white;;
-}
-.services .container .services-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.services .container .services-content .col {
-   width: 460px;
-}
-@media (max-width: 991px) {
-  .services .container .services-content .col {
-    width: 100%;
-  }
-}
-.services .container .services-content .serv {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 50px;
-}
-@media (max-width: 991px) {
-  .services .container .services-content .serv {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-.services .container .services-content .serv i {
-  flex-basis: 80px;
-  font-family: "Font Awesome 5 Free";
-}
-.services .container .services-content .serv .detail {
-  flex: 1;
-}
-@media (max-width: 991px) {
-  .services .container .services-content .serv .detail {
-    text-align: center;
-  }
-}
-.services .container .services-content .serv .detail h3{
-  color: var(--main-color);
-  margin-bottom: 40px;
-}
-.services .container .services-content .serv .detail p {
-  color: var(--text-content-color);
-  line-height: var(--line-height);
-  }
-/* End Services Section */
-/* Start Design Section */
-.design {
-  padding-top: var(--padding-bottom-section);
-  padding-bottom: var(--padding-top-section);
-  background-image: url("../images/design-features.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow: hidden;
-}
-.design-content { 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  justify-content: flex-end;
-  align-items: center;
-}
-.design-content img {
-  margin: 0 auto 0;
-  position: relative;
-  bottom: -150px;
-}
-@media (max-width: 767px) {
-  .design-content img  {
-    display: none;
-  }
-}
-.design-content .design-features {
-  padding: 30px;
-  width: 50%;
-  background-color: var(--transparent-color);
-}
-@media (max-width: 767px) {
-  .design-content .design-features  {
-    width: 100%;;
-  }
-}
-.design-content .design-features h3 {
-  color: white;
-  text-transform: uppercase;
-  font-weight: normal;
-  font-size: 25px;
-  margin-bottom: 50px;
-}
-.design-content .design-features ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;;
-}
-.design-content .design-features ul li {
-  color: white;
-  text-transform: capitalize;
-  font-size: 17px;
-  margin-bottom: 20px;
-}
-.design-content .design-features ul li::before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f108";
-  font-weight: 900;
-  margin-right: 20px;
-  position: relative;
-  top: 1px;
-}
-/* End Design Section */
-/* Start Portfolio Section */
-.portfolio {
-  padding-top: var(--padding-top-section);
-  padding-bottom: var(--padding-bottom-section)
-}
-.portfolio .shuffle-span {
-  display: flex;
-  justify-content: center;
-}
-.portfolio .shuffle-span span {
-  padding: 10px;
-  text-transform: capitalize;
-}
-.portfolio .shuffle-span span.active {
-  color: white;
-  background-color: var(--main-color);
-}
-.portfolio .images-gallery {
-  padding-top: 50px;
-  padding-bottom: 25px;
-  display: grid;
-}
-@media (min-width: 768px) {
-  .portfolio .images-gallery {
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  }
-}
-.portfolio .images-gallery .img {
-  overflow: hidden;
-  position:relative;
-}
-.portfolio .images-gallery .img img {
-  max-width: 100%;
-  transition: transform;
-  transition-duration: var(--main-duration);
-}
- .portfolio .images-gallery .img:hover img
-  {
-   transform: rotate(0.9deg) scale(1.1);
-  }
-.portfolio .images-gallery .img .info {
-  padding: 20px;
-  height: 85px;
-  background-color: white;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  bottom: -100px;
-  transition-property: bottom;
-  transition-duration: var(--main-duration);
-}
-.portfolio .images-gallery .img:hover .info {
-  bottom: 0;
-}
-.portfolio .images-gallery .img .info p:first-child {
-  text-transform: capitalize;
-}
-.portfolio .images-gallery .img .info p:last-child {
-  text-transform: capitalize;
-  color: var(--main-color);
-}
-.portfolio  .more-button {
-  display: block;
-  appearance: none;
-  padding: 15px 20px;
-  background-color: var(--main-color);
-  border: none;
-  color: white;
-  font-size: 18px;
-  text-transform: uppercase;
-  margin: 0 auto 0;
-}
-.portfolio  .more-button {
-  display: block;
-  width: fit-content;
-  text-decoration: none;
-}
-/* End Portfolio Section */
-/* Start Video Section */
-.video {
-  padding-top: var(--padding-top-section);
-  padding-bottom: var(--padding-bottom-section);
-  position: relative;
-}
-.video video {
-   max-width: 100%;
-}
-.video .info {
-  padding: 40px 0;
-  text-align: center;
-  background-color: var(--transparent-color);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 100%;
-}
-.video .info h3 {
-  color: white;
-  text-transform: uppercase;
-  font-weight: normal;
-}
-.video .info p {
-  color: white;
-  text-transform: capitalize;
-  padding: 20px 0;
-}
-.video .info a {
-  display: block;
-  width: fit-content;
-  padding: 10px 20px;
-  margin: 0 auto 0;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: white;
-  background-color: black;
-}
-/* End Video Section */
-/* Start About Section */
-.about {
-  padding-top: var(--padding-top-section);
-  padding-bottom: var(--padding-bottom-section);
-  text-align: center;
-}
- /* .about img {
-  text-align: center;
-  max-width: 100%;
- } */
-.about .container .main-heading {
-    margin-bottom: 260px;
-}
-@media (max-width: 767px) {
-    .about .container .main-heading {
-      margin-bottom: 200px;
-    }
-}
-.about .statistics-container {
-  background-image: url("../images/stats.png");
-  background-repeat: no-repeat  ;
-  background-size: cover;
-  padding: 100px 15px;
-  text-align: center;
-  position: relative;
-}
-@media (max-width: 767px) {
-  .about .statistics-container {
-    margin-top: 180px;
-  }
-}
-.about .statistics-container img {
-    max-width: 100%;
-    position: absolute;
-    top: -190px;
-    left:50%;
-    transform: translateX(-50%);
-    z-index: -1
-}
-@media (max-width: 767px) {
-     .about .statistics-container img {
-         top: -135px;
-     }
-}
-.about .statistics-container .overly {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0 0 0 / 70%);
- }
-.about .statistics-container .box {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  background-color: var(--transparent-color);
-  margin: 0 auto;
-  position: relative;
-}
-@media (max-width: 767px) {
-  .about .statistics-container .box {
-    width: 100%
-  }
-}
-.about .statistics-container .box .stat {
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  justify-content: space-between;
-  padding: 40px;
-}
-@media (max-width: 767px) {
-  .about .statistics-container .box .stat {
-    flex-basis: 100%;
-     
-  }
-}
-@media (min-width: 768px) {
-  .about .statistics-container .box .stat {
-    flex-basis: 50%;
-  }
-}
-@media (min-width: 992px) {
-  .about .statistics-container .box .stat {
-    flex-basis: 25%;
-  }
-}
-.about .statistics-container .box .stat i {
-  display: block;
-  width: 40px;
-  height: 40px;
-  padding: 20px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  color: white;
-  font-family: "Font Awesome 5 Free";
-}
-.about .statistics-container .box .stat .stat-number {
-  font-size: 45px;
-  font-weight: bold;;
-  color: white;
-  margin: 15px 0;
-}
-.about .statistics-container .box .stat .stat-type {
-  color: white;
-  text-transform: capitalize;
-  font-size: 14px;
-  margin-bottom: 30px
-}
-/* End About Section */
-/* Start Skills Section */
-.self-skills {
-  padding-bottom: var(--padding-top-section);
-}
-.self-skills .container {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 50px;
-}
-@media (max-width: 767px) {
-  .self-skills .container {
-    flex-direction: column
-  }
-}
-@media (min-width: 992px) {
-  .self-skills .container .testimonials,
-.self-skills .container .skills {
-  flex: 1;
-}
-}
-.self-skills .container .testimonials .title,
- .self-skills .container .skills .title  {
-    text-align: center;
-    margin-bottom: 50px;
-}
-.self-skills .container .testimonials .title h2,
-.self-skills .container .skills .title h2 {
-  text-transform: uppercase;
-  font-weight: normal;
-   margin-bottom: 30px;
-}
-.self-skills .container .testimonials .title p,
-.self-skills .container .skills .title p {
-  color: var(--text-content-color);
-  line-height: 2;
-}
-.self-skills .container .testimonials .testimonial-state {
-  display: flex;
-  align-items: center;
-  margin-bottom: 25px;
-}
-@media (max-width: 767px) {
-  .self-skills .container .testimonials .testimonial-state {
-    flex-direction:column
-  }
-}
-.self-skills .container .testimonials .testimonial-state img {
-  flex-basis: 50px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-right: 50px;
-}
-@media (max-width: 767px) {
-  .self-skills .container .testimonials .testimonial-state img {
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-}
-.self-skills .container .testimonials .testimonial-state .text {
-  flex: 1;
-  border-bottom: 1px solid #ccc;
-   padding-bottom: 10px;
-}
-.self-skills .container .testimonials .testimonial-state .text p {
-  line-height: 1.9;
-}
-.self-skills .container .testimonials .testimonial-state .text span {
-  color: var(--text-content-color);
-  font-size: 14px;
-  display: block;
-  width: fit-content;
-  margin-left: auto;
-}
-.self-skills .container .testimonials .bullets {
-  list-style-type: none;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: center;
-}
-.self-skills .container .testimonials .bullets li {
-  width: 15px;
-  height: 15px;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-.self-skills .container .testimonials .bullets li.active {
-  background-color: var(--main-color);
-  border: none;
-}
-.self-skills .container .skills .skills-percentage  .percentage {
-    margin-bottom: 40px
-}
-.self-skills .container .skills .skills-percentage  .percentage h4 {
-  text-transform: uppercase;
-  font-weight: normal;
-  margin-bottom: 10px;
-} 
-.self-skills .container .skills .skills-percentage  .percentage .bar-progress {
-  height: 30px;
-  background-color: #dedadc;
-}
-.self-skills .container .skills .skills-percentage  .percentage .bar-progress div {
- HEIGHT: 100%;
- background-color: var(--main-color); 
- position: relative;
-}
-.self-skills .container .skills .skills-percentage  .percentage .bar-progress div:before {
-  content:attr(data-progress) ;
-  padding: 5px 5px;
-  border-radius: 6px;
-  background-color: black;
-  color: white;
-  position: absolute;
-  bottom: calc( 100% + 10px);
-  right: -21px;
-}
-.self-skills .container .skills .skills-percentage  .percentage .bar-progress div::after {
-  content: " ";
-  position: absolute;
-  top: -14px;
-  right: -10px;
-  border: 11px solid;
-  border-color: black transparent transparent transparent;
-}
-/* End Skills Section */
-/* Start Quote Section */
-.quote {
-  padding-top: var(--padding-top-section);
-  padding-bottom: var(--padding-bottom-section);
-  background-image: url("../images/quote.jpg");
-  background-size: cover;
-  text-align: center;
-  position:relative;
-}
-.quote::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0 0 0 / 75%);
-}
-.quote .container {
-  position: relative;
-}
-.quote .container q{
-  color: white;
-  font-size: 30px;
-  display: block;
-  margin-bottom: 20px;
-}
-.quote  .container p {
-  color: white;
-}
-/* End Quote Section */
-/* Start Pricing Section */
-.pricing {
-  padding-top: var(--padding-top-section);
-  padding-bottom: var(--padding-bottom-section);
-}
-.pricing .container .plans {
-  display: grid ;
-  grid-template-columns: repeat(auto-fill,minmax(230px, 1fr));
-  column-gap: 20px;
-}
-.pricing .container .plans .plan {
-    /* width: 320px; */
-    background-color: #fcfcfc;
-}
-.pricing .container .plans .plan .head {
-  padding: 30px;
-  border-top: 1px solid var(--main-color);
-  border-bottom: 1px solid var(--main-color);
-  text-align: center;
-}
-.pricing .container .plans .plan .head .type {
-  text-transform: uppercase;
-  font-size: 25px;
-  margin-bottom: 10px;
-}
-.pricing .container .plans .plan .head .number {
-  font-size: 60px;
-  font-weight: 900;
-  width: fit-content;
-  width: 70px;
-  margin: 0 auto 0;
-  position: relative;
-}
-.pricing .container .plans .plan .head .number::before {
-  content: "$";
-  font-size: 25px;
-  font-weight: normal;
-  position:absolute;
-  top: -2px;
-  left: -25px;
-}
-.pricing .container .plans .plan .head .number::after {
-  content: "/Mo";
-  font-size: 20px;
-  font-weight: bold;
-  position: absolute;
-  right: -50px;
-  bottom: 10px;
-}
-.pricing .container .plans .plan .body ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  text-align: center;
-}
-.pricing .container .plans .plan .body ul li {
-  padding:  20px; 
-  text-transform: capitalize;
-  font-size: 18px;
-  position: relative;
-}
-.pricing .container .plans .plan .body ul li::before {
-  content: " ";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 1px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasper | Template Two Design  </title>
+    <!-- Render All Elements Normally  -->
+     <link rel="stylesheet" href="css/nomalize" />
+    <!-- Font Awesome library  -->
+     <link rel="stylesheet" href="css/all.min.css" />
+    <!-- Google Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <!-- Main Template CSS Files -->
+     <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="header">
+       <div class="container">
+        <img src="images/nywtk-09.png" alt="slogan Image" class="slogan">
+       
+        <div class="link">
+            <i class="fa-solid fa-bars  toggle-menu"></i>
+            <ul>
+                <li><a href="#home" class="active">home</a></li>
+                <li><a href="#services">services</a></li>
+                <li><a href="#portfolio">portfolio</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#pricing">pricing</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        </div>
+       </div>
+    </div>
+    <!-- Landing Section -->
+    <div class="landing">
+        <video src="videos/gym-04.mp4" autoplay loop muted></video>
+        <!-- <div class="overly"></div> -->
+        <div class="intro-box">
+            <div class="intro-text">
+                <h2> hello, i'm <span class="my-name">abdulaziz saad</span> </h2>
+                <h1>Software Engineer</h1>
+                <h2>  i love challenges, innovations and Analysis </h2>
+            </div>
+        </div>
+        <i class="fas fa-angle-left  fa-2x change-background" ></i>
+        <i class="fas fa-angle-right  fa-2x change-background"></i>
 
-}
-.pricing .container .plans .plan .body ul li:not(:last-child)::before {
-  background-color: var(--main-color);
-  width: 170px;
-}
-.pricing .container .plans .plan .foot {
-  text-align: center;
-  padding: 30px;
-  border-top: 1px solid var(--main-color);
-}
-.pricing .container .plans .plan .foot a {
-  display: block;
-  width: fit-content;
-  margin: 0 auto 0;
-  padding: 15px 20px;
-  border: 1px solid var(--main-color);
-  text-transform: capitalize;
-  text-decoration: none;
-}
-.pricing .container .plans + p {
-  text-align: center;
-  text-transform: capitalize;
-  font-size: 22px;
-  margin: 40px 0px 20px;
-}
-.pricing .container a.contcat {
-  display: block;
-  width: fit-content;
-  margin: 0 auto 0;
-  padding: 15px 30px;
-  background-color: var(--main-color);
-  color: white;
-  text-transform: capitalize;
-  text-decoration: none;;
-}
-/* End Pricing Section */
-/* Start Subscribe Section  */
-.subscribe {
-  padding-top: var(--padding-top-section);
-  padding-bottom: var(--padding-bottom-section);
-  background-image: url("../images/subscribe.jpg");
-  background-size: cover;
-  text-align: center;
-  position:relative
-}
-.subscribe::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0 0 0 / 50%);
-}
-.subscribe .container {
-  display: flex;
-  align-items: center;
-}
-@media(max-width: 767px) {
-  .subscribe .container {
-    flex-direction: column;
-    row-gap: 15px ;
-  }
-}
-.subscribe .container form {
-  flex: 1;
-  position: relative;
-  display: flex;
-}
-.subscribe .container form i {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 15px;
-  color: white;
-}
-.subscribe .container form input{
-  padding: 15px 20px;
-  border: none;
-  font-size: 16px;
-  border: 1px solid white;
-}
-.subscribe .container form input[type="email"] {
-  background-color: transparent;
-  padding-left: 50px;
-  text-transform: capitalize;
-  width: 100%;  
-}
-.subscribe .container form input[type="submit"] {
-  flex: 2;
-  background-color: var(--main-color);
-  border: 1px solid white;
-  border-left: none;
-  text-transform: uppercase;
-  color: white;
-}
-.subscribe .container p {
-  flex: 2;
-  position: relative;
-  color: white;
-}
-/* End Subscribe Section  */
-/* Start Contact Us Section */
-.contact {
-  padding-top: var(--padding-top-section);
-  padding-bottom: var(--padding-bottom-section);
-}
-.contact .container .contact-container {
-  display: flex;
-  justify-content: center;
-  column-gap: 50px
-}
-@media (max-width: 767px) {
-  .contact .container .contact-container {
-    flex-direction: column;
-  }
-}
-.contact .container .contact-container form > input {
-  width: 100%;
-  padding: 20px;
-  margin-bottom: 30px;
-  border: 1px solid #ccc;
-  outline: none;
-}
-.contact .container .contact-container form textarea {
-  height: 200px;
-  width: 100%;
-  padding: 20px;
-  margin-bottom: 30px;
-  border: 1px solid #ccc;
-  outline: none;
-  resize: none;
-}
-.contact .container .contact-container form input[type="submit"] {
-  width: fit-content;
-  background-color: var(--main-color);
-  color: white;
-  text-transform: uppercase;
-  font-size: 20px;
-  margin-left: auto;
-  display: block 
-}
-.contact .container .contact-container .info {
-  text-align: center;
-}
-@media (max-width: 767px) {
-  .contact .container .contact-container .info {
-     order: -1;
-  }
-}
-.contact .container .contact-container .info .tell {
-    margin-bottom: 130px;  
- }
- @media (max-width: 767px) {
-  .contact .container .contact-container .info .tell {
-    margin-bottom: 30px;
-  }
- }
-.contact .container .contact-container .info .tell h3 {
-  text-transform: uppercase;
-  font-weight:  normal;
-  margin-bottom: 20px;
- }
- .contact .container .contact-container .info .tell .phone {
-  display: block;
-  color: var(--text-content-color);
-  margin-bottom: 5px;
- }
- .contact .container .contact-container .info .tell .email {
-  display: block;
-  color: var(--text-content-color);
-  margin-bottom: 5px;
- }
-.contact .container .contact-container .info .location {
-  margin-bottom: 30px;
-}
-.contact .container .contact-container .info .location h3 {
-  text-transform: uppercase;
-  font-weight:  normal;
-  margin-bottom: 20px;
-}
-.contact .container .contact-container .info .location p {
-  color: var(--text-content-color);
-  text-transform: capitalize;
-  display: block;
-  margin-bottom: 5px;
-}
-.contact .container .contact-container .info .location span {
-  color: var(--text-content-color) ;
-  text-transform: capitalize;
-    margin-bottom: 5px;
-}
-/* End Contact Us Section */
-/* Start Footer Section */
-.footer {
-  background-image: url("../images/subscribe.jpg");
-  background-size: cover; 
-  text-align: center;
-  padding-top: calc( var(--padding-top-section));
-  padding-bottom: calc( var(--padding-bottom-section));
-  position: relative
-}
-.footer::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0 0 0 / 70%);
-}
-.footer .container {
-  position: relative;
-}
-.footer .container h2 {
-  color: white;
-  text-transform: uppercase;
-  font-weight: normal;
-  font-size: 20px;
-  padding: 15px;
-  border-bottom: 1px solid white;
-  width: fit-content;
-  margin: 50px auto 20px;
-}
-.footer .container .slogan {
-  width: 112px;
-} 
-.footer .container .social-media {
-  margin: 20px 0px 60px;
-}
-.footer .container .social-media i {
-  color: white;
-  font-size: 20px;
-  margin-right: 15px;
-  font-family: "Font Awesome 5 Free";
-}
- .footer .container .copy-right {
-  color: white;
-  font-size: 14px;
- }
- .footer .container .copy-right p {
-  text-transform: capitalize;
-  font-size: 16px;
- }
- .footer .container .copy-right p span {
-  color: var(--main-color);
-  font-weight: bold;
-  text-transform: uppercase;
- }
-/* End Footer Section */
+        <div class="bullets-icons">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- <div class="overly"></div> -->
+    </div>
+    <!-- Services Section -->
+     <div class="services" id="services">
+        <div class="container">
+            <div class="main-heading">
+                <h1>services</h1>
+                <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
+            </div>
+            <div class="services-content">
+                <div class="col">
+                    <div class="serv">
+                        <i class="fas fa-desktop fa-3x"></i>
+                        <div class="detail">
+                            <h3>Vorem amet intuitive</h3>
+                            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam.</p>
+                        </div>
+                    </div>
+                    <div class="serv">
+                        <i class="fas fa-pencil-ruler fa-3x"></i>
+                        <div class="detail">
+                            <h3>Vorem amet intuitive</h3>
+                            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="serv">
+                        <i class="fas fa-cog fa-3x"></i>
+                        <div class="detail">
+                            <h3>Vorem amet intuitive</h3>
+                            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam.</p>
+                        </div>
+                    </div>
+                    <div class="serv">
+                        <i class="fas fa-camera fa-3x"></i>
+                        <div class="detail">
+                            <h3>Vorem amet intuitive</h3>
+                            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+     <!-- Design Section -->
+     <div class="design" id="design">
+        <div class="overlay"></div>
+        <div class="design-content">
+            <img src="images/mobile.png" alt=" Design Picture" />
+            <div class="design-features">
+                <h3>our design comes with...</h3>
+                <ul>
+                    <li>responsive design</li>
+                    <li>modern and clean design</li>
+                    <li>clean code</li>
+                    <li>browser friendly</li>
+                </ul>
+            </div>
+        </div>
+     </div>
+     <!-- Portfolio Section -->
+      <div class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="main-heading">
+                <h1>portfolio</h1>
+                <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
+            </div>
+            <!-- Using Span Tag Make Shuflle Menu -->
+            <div class="shuffle-span">
+                <span class="active">all</span>
+                <span>app</span>
+                <span>photo</span>
+                <span>web</span>
+                <span>print</span>
+            </div>
+            <!-- Using Unorder List Tag Make Shuflle Menu -->
+            <!-- <ul class="shuffle-list">
+                <li class="active">all</li>
+                <li>app</li>
+                <li>photo</li>
+                <li>web</li>
+                <li>print</li>
+            </ul> -->
+        </div>
+        <div class="images-gallery">
+            <div class="img">
+                <img src="/images/shuffle-01.jpg" alt="shuflle Image 01" />
+                <div class="info">
+                    <p>awesome image</p>
+                    <p>photography</p>
+                </div>
+            </div>
+            <div class="img">
+                <img src="/images/shuffle-02.jpg" alt="shuflle Image 01" />
+                <div class="info">
+                    <p>awesome image</p>
+                    <p>photography</p>
+                </div>
+            </div>
+            <div class="img">
+                <img src="/images/shuffle-03.jpg" alt="shuflle Image 01" />
+                <div class="info">
+                    <p>awesome image</p>
+                    <p>photography</p>
+                </div>
+            </div>
+            <div class="img">
+                <img src="/images/shuffle-04.jpg" alt="shuflle Image 01" />
+                <div class="info">
+                    <p>awesome image</p>
+                    <p>photography</p>
+                </div>
+            </div>
+            <div class="img">
+                <img src="/images/shuffle-05.jpg" alt="shuflle Image 01" />
+                <div class="info">
+                    <p>awesome image</p>
+                    <p>photography</p>
+                </div>
+            </div>
+            <div class="img">
+                <img src="/images/shuffle-06.jpg" alt="shuflle Image 01" />
+                <div class="info">
+                    <p>awesome image</p>
+                    <p>photography</p>
+                </div>
+            </div>
+            <div class="img">
+                <img src="/images/shuffle-07.jpg" alt="shuflle Image 01" />
+                <div class="info">
+                    <p>awesome image</p>
+                    <p>photography</p>
+                </div>
+            </div>
+            <div class="img">
+                <img src="/images/shuffle-08.jpg" alt="shuflle Image 01" />
+                <div class="info">
+                    <p>awesome image</p>
+                    <p>photography</p>
+                </div>
+            </div>
+        </div>
+        <!-- <button class="more-button" href="#">more</button> -->
+        <a href="#" class="more-button">more</a>
+      </div>
+      <div class="video" id="video">
+        <video autoplay muted loop>
+            <source src="videos/awesome-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overly"></div>
+        <div class="info">
+            <h3>super awesome vedio here</h3>
+            <p>Its All You Need</p>
+            <a href="#">see more</a>
+        </div>
+      </div>
+      <!-- Start About Section -->
+       <div class="about" id="about">
+        <div class="container">
+            <div class="main-heading">
+                <h1>abdout us</h1>
+                <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
+            </div>
+        </div>
+        <div class="statistics-container">
+            <img src="images/about.png" alt="About Us Mobile Image" class="mobile-image"/>
+            <div class="overly"></div> 
+            <div class="box">
+                <div class="stat">
+                    <i class="fas fa-mug-hot"></i>
+                    <span class="stat-number">1236</span>
+                    <p class="stat-type">coffee drinks</p>
+                </div>
+                <div class="stat">
+                    <i class="far fa-folder"></i>
+                    <span class="stat-number">256</span>
+                    <p class="stat-type">completed projects</p>
+                </div>
+                <div class="stat">
+                    <i class="far fa-envelope"></i>
+                    <span class="stat-number">1743</span>
+                    <p class="stat-type">mail send</p>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-trophy"></i>
+                    <span class="stat-number">17</span>
+                    <p class="stat-type">awards received</p>
+                </div>
+            </div>
+        </div>
+       </div>
+      <!-- End About Section -->
+       <!-- Start skills Section -->
+        <div class="self-skills" id="self-skills">
+            <div class="container">
+                <div class="testimonials">
+                    <div class="title">
+                        <h2>testmonials</h2>
+                        <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt</p>
+                    </div>
+                    <div class="testimonial-state">
+                        <img src="images/skills-01.jpg" alt="Skills Image" />
+                        <div class="text">
+                            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
+                            <span>John Doe, CEO</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-state">
+                        <img src="images/skills-02.jpg" alt="Skills Image" />
+                        <div class="text">
+                            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
+                            <span>John Doe, CEO</span>
+                        </div>
+                    </div>
+                    <ul class="bullets">
+                    <li></li>
+                    <li class="active"></li>
+                    <li></li>
+                   </ul>
+                </div>
+                <div class="skills">
+                    <div class="title">
+                        <h2>skills</h2>
+                        <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt</p>
+                    </div>
+                    <div class="skills-percentage">
+                        <div class="percentage">
+                           <h4>abdobe</h4>
+                           <div class="bar-progress">
+                            <div  data-progress="90%" style="width:90%" ></div>
+                           </div>
+                        </div>
+                        <div class="percentage">
+                           <h4>html & css</h4>
+                           <div class="bar-progress">
+                            <div  data-progress="85%" style="width:85%" ></div>
+                           </div>
+                        </div>
+                        <div class="percentage">
+                           <h4>javascript</h4>
+                           <div class="bar-progress">
+                            <div  data-progress="80%" style="width:80%" ></div>
+                           </div>
+                        </div>
+                        <div class="percentage">
+                           <h4>php</h4>
+                           <div class="bar-progress">
+                            <div  data-progress="90%" style="width:90%" ></div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <!-- End skills Section -->
+        <!-- Start Quote Section -->
+         <div class="quote" id="quote">
+            <div class="container">
+                <q>accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</q>
+                <p>John Doe</p>
+            </div>
+         </div>        
+        <!-- End Quote Section -->
+        <!-- Start Pricing Section -->
+         <div class="pricing" id="pricing">
+            <div class="container">
+                <div class="main-heading">
+                    <h1>pricing</h1>
+                    <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
+                </div>
+                <div class="plans">
+                    <div class="plan">
+                        <div class="head">
+                            <div class="type">basic</div>
+                            <div class="number">19</div>
+                        </div>
+                        <div class="body">
+                            <ul>
+                                <li>feature no 1</li>
+                                <li>extra feature</li>
+                                <li>extra feature  no 2</li>
+                                <li>feature</li>
+                            </ul>
+                        </div>
+                        <div class="foot">
+                            <a href="#">buy now</a>
+                        </div>
+                    </div>
+                    <div class="plan">
+                        <div class="head">
+                            <div class="type">premium</div>
+                            <div class="number">29</div>
+                        </div>
+                        <div class="body">
+                            <ul>
+                                <li>feature no 1</li>
+                                <li>extra feature</li>
+                                <li>extra feature  no 2</li>
+                                <li>feature</li>
+                            </ul>
+                        </div>
+                        <div class="foot">
+                            <a href="#">buy now</a>
+                        </div>
+                    </div>
+                    <div class="plan">
+                        <div class="head">
+                            <div class="type">pro</div>
+                            <div class="number">39</div>
+                        </div>
+                        <div class="body">
+                            <ul>
+                                <li>feature no 1</li>
+                                <li>extra feature</li>
+                                <li>extra feature  no 2</li>
+                                <li>feature</li>
+                            </ul>
+                        </div>
+                        <div class="foot">
+                            <a href="#">buy now</a>
+                        </div>
+                    </div>
+                    <div class="plan">
+                        <div class="head">
+                            <div class="type">platinum</div>
+                            <div class="number">49</div>
+                        </div>
+                        <div class="body">
+                            <ul>
+                                <li>feature no 1</li>
+                                <li>extra feature</li>
+                                <li>extra feature  no 2</li>
+                                <li>feature</li>
+                            </ul>
+                        </div>
+                        <div class="foot">
+                            <a href="#">buy now</a>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-contact">Contact us if you have special request</p>
+                <a href="#" class="contcat">contcat us</a>
+            </div>
+         </div>
+        <!-- End Pricing Section -->
+        <!-- Start Subscribe Section -->
+         <div class="subscribe" id="subscribe">
+            <div class="container">
+                <form>
+                    <i class="far fa-envelope fa-lg"></i>
+                    <input type="email" placeholder="enter your email" required />
+                    <input type="submit" value="subscribe" />
+                </form>
+                <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blan dit aliquet elit, eget tincidunt.</p>
+            </div>
+         </div>
+        <!-- End Subscribe Section -->
+        <!-- Start Contact Us Section -->
+         <div class="contact" id="contact">
+            <div class="container">
+                <div class="main-heading">
+                    <h1>contcat us</h1>
+                    <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
+                </div>
+                <div class="contact-container">
+                    <form>
+                        <input type="text" name="name" placeholder="Your Name" />
+                        <input type="email" name="email" placeholder="Your Email" />
+                        <textarea placeholder="Your Message" ></textarea>
+                        <input type="submit" value="send message" />
+                    </form>
+                    <div class="info">
+                        <div class="tell">
+                            <h3>get  in touch</h3>
+                            <span class="phone">966556056680</span>
+                            <span class="email">asalrobai@hotmail.com</span>
+                        </div>
+                        <div class="location">
+                            <h3>where we are</h3>
+                            <p>Kingdom of Saudi Arabia</p>
+                            <p>Jeddah</p>
+                            <span class="phone">123-4567-890</span>
+                            <p>KAS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+         <!-- End Contact Us Section -->
+         <!-- Start Footer Section -->
+          <div class="footer">
+            <div class="container">
+                <img src="images/nywtk-04.png" alt="slogan Image" class="slogan">
+                <h2>we are social</h2>
+                <div class="social-media">
+                    <i class="fab fa-facebook-f"></i>              
+                    <i class="fab fa-twitter"></i>            
+                    <i class="fas fa-home"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <div class="copy-right">
+                   <p> &copy; 2026 <span>abdulaziz</span> all right resvered</p>
+                </div
+                </div>
+          </div>
+         <!-- End Footer Section -->
+        
+</body>
+</html>
